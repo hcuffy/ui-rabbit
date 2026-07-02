@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm --filter @ui-rabbit/driver exec playwright install --with-deps chromium
+
+      - run: pnpm run typecheck
+
+      # Root `tsc -b` excludes packages/frontend (it needs Vite's `bundler`
+      # module resolution, incompatible with the rest of the repo's NodeNext) —
+      # this is the only step that actually typechecks + builds it.
+      - run: pnpm --filter @ui-rabbit/frontend run build
+
+      - run: pnpm lint
+
+      - run: pnpm -r run test

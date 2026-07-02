@@ -1,0 +1,36 @@
+{
+  "name": "ui-rabbit",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b",
+    "lint": "eslint .",
+    "test": "pnpm -r run test",
+    "format": "prettier --write .",
+    "dev": "concurrently -n backend,frontend -c blue,green \"pnpm --filter backend dev\" \"pnpm --filter frontend dev\"",
+    "db:up": "docker compose up -d mongo",
+    "db:down": "docker compose down"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^24.0.0",
+    "concurrently": "^10.0.3",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^2.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "mongodb-memory-server"
+    ]
+  }
+}

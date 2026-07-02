@@ -1,0 +1,31 @@
+{
+  "name": "@ui-rabbit/backend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b",
+    "test": "vitest run --passWithNoTests",
+    "dev": "DOTENV_CONFIG_PATH=../../.env tsx src/server.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.105.0",
+    "@fastify/cors": "^11.2.0",
+    "@ui-rabbit/driver": "workspace:*",
+    "@ui-rabbit/engine": "workspace:*",
+    "@ui-rabbit/shared": "workspace:*",
+    "dotenv": "^17.4.2",
+    "fastify": "^5.8.5",
+    "mongodb": "^7.3.0",
+    "playwright": "^1.61.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.2.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.0.0"
+  }
+}

@@ -1,0 +1,147 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 1.5rem;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 1.5rem;
+}
+
+.new-run-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.new-run-form textarea,
+.new-run-form input {
+  font: inherit;
+  padding: 0.4rem;
+}
+
+.new-run-form button {
+  align-self: flex-start;
+  padding: 0.4rem 1rem;
+}
+
+.form-error {
+  color: #b00020;
+}
+
+.run-history {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.run-history th,
+.run-history td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.run-history tbody tr {
+  cursor: pointer;
+}
+
+.run-history__row--selected {
+  background: #eef;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+.status-badge--pending {
+  background: #eee;
+}
+
+.status-badge--running {
+  background: #fff3cd;
+}
+
+.status-badge--completed {
+  background: #d4edda;
+}
+
+.status-badge--failed {
+  background: #f8d7da;
+}
+
+.finding-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.finding-card {
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  padding: 0.75rem;
+}
+
+.finding-card__header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.finding-card__type {
+  font-weight: 600;
+}
+
+.finding-card__verdict {
+  padding: 0.05rem 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.85em;
+}
+
+.finding-card__verdict--regression {
+  background: #f8d7da;
+}
+
+.finding-card__verdict--intended_change {
+  background: #d4edda;
+}
+
+.finding-card__verdict--needs_human {
+  background: #fff3cd;
+}
+
+.finding-card__verdict--known {
+  background: #eee;
+}
+
+.finding-card__reasoning {
+  font-style: italic;
+}
+
+.finding-card__evidence {
+  color: #555;
+  font-size: 0.9em;
+}
+
+.finding-card__repro-link {
+  display: inline-block;
+  margin-top: 0.4rem;
+}
